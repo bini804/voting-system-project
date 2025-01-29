@@ -75,6 +75,13 @@ INSERT INTO vote_party_count (party_name, party_votes) VALUES
 4. **View Confirmation** of successful voting.
 
 ## Screenshots
+
+- welcome page
+
+![1](https://github.com/user-attachments/assets/c69fb732-3875-4919-9edc-2746fc1b1083)
+
+
+
 _(Add screenshots of the application here)_
 
 ## Contributing
