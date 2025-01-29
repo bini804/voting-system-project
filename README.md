@@ -101,7 +101,6 @@ INSERT INTO vote_party_count (party_name, party_votes) VALUES
     
 ![4](https://github.com/user-attachments/assets/798359a8-22a6-4699-a99c-62af54315f42)
 
-_(Add screenshots of the application here)_
 
 ## Contributing
 Feel free to contribute by submitting issues or pull requests.
