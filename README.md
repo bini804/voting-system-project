@@ -81,6 +81,25 @@ INSERT INTO vote_party_count (party_name, party_votes) VALUES
 ![1](https://github.com/user-attachments/assets/c69fb732-3875-4919-9edc-2746fc1b1083)
 
 
+- enter information voters
+
+
+
+![2](https://github.com/user-attachments/assets/5399c357-b7aa-4559-90b5-144ec4121224)
+
+
+- choic party
+
+    
+![3](https://github.com/user-attachments/assets/4851a38c-c6ea-4999-a06e-49499666a970)
+
+
+- All information show
+
+
+
+    
+![4](https://github.com/user-attachments/assets/798359a8-22a6-4699-a99c-62af54315f42)
 
 _(Add screenshots of the application here)_
 
