@@ -1,97 +1,84 @@
-# Voting System Application
+# Voting System
 
-A Java-based voting system with a graphical user interface using Swing and MySQL for data storage.
+A Java-based voting application with a GUI built using **Swing** and **MySQL** as the database backend.
 
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
+- [Installation](#installation)
 - [Database Schema](#database-schema)
-- [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
-This project is a simple electronic voting system where users can cast votes securely. It allows voters to register, select their preferred party, and store votes in a database.
+This project is a **voting system** where users can enter their details and vote for a political party. The system stores voter information and counts votes securely using **MySQL**.
 
 ## Features
-- User-friendly GUI built with Swing
-- Voter authentication and registration
-- Voting for political parties
-- Secure MySQL database storage
-- Vote confirmation screen
+- User-friendly **GUI** with an intuitive voting process.
+- Stores voter details securely in **MySQL**.
+- Prevents duplicate voting using CNIC validation.
+- Displays a **confirmation screen** after voting.
 
 ## Technologies Used
-- Java (Swing for GUI)
-- MySQL (Database)
-- JDBC (Database Connectivity)
+- **Java** (Swing for GUI)
+- **MySQL** (Database Management System)
+- **JDBC** (Database Connectivity)
 
-## Setup Instructions
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/voting-system.git
+## Installation
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/your-username/voting-system.git
    cd voting-system
    ```
-2. **Setup the Database**
-   - Install MySQL and create a database named `election_system`
-   - Run the following SQL queries to create necessary tables:
-     ```sql
-     CREATE TABLE voters_info (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-         full_name VARCHAR(255) NOT NULL,
-         cnic_number VARCHAR(20) UNIQUE NOT NULL,
-         gender_type VARCHAR(10) NOT NULL,
-         city_name VARCHAR(100) NOT NULL,
-         selected_party VARCHAR(50)
-     );
-     
-     CREATE TABLE vote_party_count (
-         party_name VARCHAR(50) PRIMARY KEY,
-         party_votes INT DEFAULT 0
-     );
-     ```
-3. **Configure Database Connection**
-   - Update `DatabaseConnection` class with your MySQL credentials:
-     ```java
-     private static final String URL = "jdbc:mysql://localhost:3306/election_system";
-     private static final String USER = "root";
-     private static final String PASSWORD = "yourpassword";
-     ```
-4. **Compile and Run the Application**
-   ```bash
+2. **Set up the database**:
+   - Install **MySQL** and create a database.
+   - Use the provided **SQL schema** to create required tables.
+3. **Configure Database Connection**:
+   - Open `DatabaseConnection.java` and update the `URL`, `USER`, and `PASSWORD` fields.
+4. **Compile and Run**:
+   ```sh
    javac VotingApp.java
    java VotingApp
    ```
 
-## Project Structure
-```
-/voting-system
-│── src/
-│   ├── VotingApp.java
-│   ├── DatabaseConnection.java
-│   ├── WelcomeScreen.java
-│   ├── VoterInfoScreen.java
-│   ├── PartyVoteScreen.java
-│   ├── VoteConfirmationScreen.java
-│── assets/
-│   ├── vote1.jpg
-│   ├── g2.jpg
-│   ├── vote7.jpg
-│── README.md
-│── LICENSE
+## Database Schema
+```sql
+CREATE DATABASE election_system;
+USE election_system;
+
+CREATE TABLE voters_info (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(255) NOT NULL,
+    cnic_number VARCHAR(15) UNIQUE NOT NULL,
+    gender_type ENUM('Male', 'Female') NOT NULL,
+    city_name VARCHAR(100) NOT NULL,
+    selected_party VARCHAR(50)
+);
+
+CREATE TABLE vote_party_count (
+    party_name VARCHAR(50) PRIMARY KEY,
+    party_votes INT DEFAULT 0
+);
+
+INSERT INTO vote_party_count (party_name, party_votes) VALUES
+('Party X', 0),
+('Party Y', 0);
 ```
 
 ## Usage
-1. Launch the application.
-2. Enter voter details (Name, CNIC, Gender, City).
-3. Select and cast a vote for a political party.
-4. Receive a confirmation message after voting.
+1. **Launch the Application** by running `VotingApp.java`.
+2. **Enter Voter Information** including Name, CNIC, Gender, and City.
+3. **Select a Party** and cast your vote.
+4. **View Confirmation** of successful voting.
 
 ## Screenshots
-(Add screenshots of the application here)
+_(Add screenshots of the application here)_
+
+## Contributing
+Feel free to contribute by submitting issues or pull requests.
 
 ## License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
+This project is licensed under the **MIT License**.
